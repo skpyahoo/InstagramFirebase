@@ -1,26 +1,133 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PBI-x2-pZc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="HMu-06-PHB">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PBI-x2-pZc" customClass="ViewController" customModule="InstaFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="ube-8x-CA6"/>
+                        <viewControllerLayoutGuide type="bottom" id="582-gb-dvW"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="jz9-SH-EgT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ad6eaceb600c46dc4119d6e0f66386e1" translatesAutoresizingMaskIntoConstraints="NO" id="Fp1-qZ-XrG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <view alpha="0.55000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwU-rh-UKX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqD-kn-mfC" customClass="RoundButton" customModule="InstaFirebase" customModuleProvider="target">
+                                <rect key="frame" x="117" y="40" width="140" height="140"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="EJi-Q3-sgh"/>
+                                    <constraint firstAttribute="width" constant="140" id="pSd-8U-Vct"/>
+                                </constraints>
+                                <state key="normal" image="plus_photo"/>
+                                <connections>
+                                    <action selector="profileBtnPressed:" destination="PBI-x2-pZc" eventType="touchUpInside" id="nSF-Kp-JhB"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="9TZ-jk-IM0">
+                                <rect key="frame" x="60" y="210" width="255" height="199"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="0FM-h4-AT9">
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="40"/>
+                                        <color key="backgroundColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="0.46763270547945202" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Pib-p0-2n3"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <action selector="isFormValid:" destination="PBI-x2-pZc" eventType="editingChanged" id="Wsp-O1-JM1"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="kpb-kL-X0i">
+                                        <rect key="frame" x="0.0" y="53" width="255" height="40"/>
+                                        <color key="backgroundColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="0.46763270547945202" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="B5z-Vr-hK1"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="isFormValid:" destination="PBI-x2-pZc" eventType="editingChanged" id="Ssd-ft-2hq"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passward" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="mEh-BU-3D2">
+                                        <rect key="frame" x="0.0" y="106" width="255" height="40"/>
+                                        <color key="backgroundColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="0.46763270547945202" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Dh9-jn-Wwk"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="isFormValid:" destination="PBI-x2-pZc" eventType="editingChanged" id="AhI-26-F3X"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayX-at-yRP">
+                                        <rect key="frame" x="0.0" y="159" width="255" height="40"/>
+                                        <color key="backgroundColor" red="0.2620360255241394" green="0.62633854150772095" blue="0.96262508630752563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="PUg-CP-Tgi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signUpBtnPressed:" destination="PBI-x2-pZc" eventType="touchUpInside" id="oI4-XD-zIf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9TZ-jk-IM0" firstAttribute="leading" secondItem="jz9-SH-EgT" secondAttribute="leadingMargin" constant="44" id="2rL-sv-7uM"/>
+                            <constraint firstItem="zqD-kn-mfC" firstAttribute="top" secondItem="jz9-SH-EgT" secondAttribute="top" constant="40" id="M0o-ln-hRi"/>
+                            <constraint firstItem="zqD-kn-mfC" firstAttribute="centerX" secondItem="jz9-SH-EgT" secondAttribute="centerX" id="P2o-XH-O0k"/>
+                            <constraint firstItem="9TZ-jk-IM0" firstAttribute="centerX" secondItem="jz9-SH-EgT" secondAttribute="centerX" id="WJV-2C-Pur"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9TZ-jk-IM0" secondAttribute="trailing" constant="44" id="eIZ-BB-XTf"/>
+                            <constraint firstItem="9TZ-jk-IM0" firstAttribute="top" secondItem="zqD-kn-mfC" secondAttribute="bottom" constant="30" id="pgp-fw-hUq"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="0FM-h4-AT9" id="hPt-1b-ly8"/>
+                        <outlet property="passwordTextField" destination="mEh-BU-3D2" id="Gkl-HE-vOs"/>
+                        <outlet property="profileButton" destination="zqD-kn-mfC" id="tCC-O7-CVR"/>
+                        <outlet property="signUpButton" destination="ayX-at-yRP" id="z9P-lC-f0B"/>
+                        <outlet property="userNameTextField" destination="kpb-kL-X0i" id="fmD-MW-gkm"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="md4-1k-lDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="72.799999999999997" y="-104.7976011994003"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ad6eaceb600c46dc4119d6e0f66386e1" width="564" height="1055"/>
+        <image name="plus_photo" width="150" height="150"/>
+    </resources>
 </document>

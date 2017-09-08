@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C74CCB717F92198C7FA3F7BD /* Pods_InstaFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2045D77E4BAA7785182A30 /* Pods_InstaFirebase.framework */; };
+		D28746BB1F62C33C002109F6 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28746BA1F62C33C002109F6 /* RoundButton.swift */; };
+		D28746BE1F62C390002109F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28746BD1F62C390002109F6 /* Constants.swift */; };
 		D28B28E01F62B5B500AC906B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B28DF1F62B5B500AC906B /* AppDelegate.swift */; };
 		D28B28E21F62B5B500AC906B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B28E11F62B5B500AC906B /* ViewController.swift */; };
 		D28B28E51F62B5B500AC906B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28B28E31F62B5B500AC906B /* Main.storyboard */; };
 		D28B28E71F62B5B500AC906B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28B28E61F62B5B500AC906B /* Assets.xcassets */; };
 		D28B28EA1F62B5B500AC906B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28B28E81F62B5B500AC906B /* LaunchScreen.storyboard */; };
+		D2AFF1051F62B90300B0DCBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2AFF1041F62B90300B0DCBA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D2045D77E4BAA7785182A30 /* Pods_InstaFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D28746BA1F62C33C002109F6 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		D28746BD1F62C390002109F6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D28B28DC1F62B5B500AC906B /* InstaFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28B28DF1F62B5B500AC906B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D28B28E11F62B5B500AC906B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,9 @@
 		D28B28E61F62B5B500AC906B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D28B28E91F62B5B500AC906B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D28B28EB1F62B5B500AC906B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2AFF1041F62B90300B0DCBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DA3EA04F0F488291EB74A93E /* Pods-InstaFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaFirebase/Pods-InstaFirebase.release.xcconfig"; sourceTree = "<group>"; };
+		F4037EA7DCA9C3410C4DDDA3 /* Pods-InstaFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaFirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaFirebase/Pods-InstaFirebase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C74CCB717F92198C7FA3F7BD /* Pods_InstaFirebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		537A5046DD0A76ADE3396BC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D2045D77E4BAA7785182A30 /* Pods_InstaFirebase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D28746B91F62C32A002109F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D28746BA1F62C33C002109F6 /* RoundButton.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D28746BC1F62C379002109F6 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				D28746BD1F62C390002109F6 /* Constants.swift */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
 		D28B28D31F62B5B400AC906B = {
 			isa = PBXGroup;
 			children = (
 				D28B28DE1F62B5B500AC906B /* InstaFirebase */,
 				D28B28DD1F62B5B500AC906B /* Products */,
+				EF64658D481DA0FCC2C0C780 /* Pods */,
+				537A5046DD0A76ADE3396BC5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +91,34 @@
 		D28B28DE1F62B5B500AC906B /* InstaFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				D28746BC1F62C379002109F6 /* util */,
+				D28746B91F62C32A002109F6 /* View */,
+				D2B812481F62C9F800AFF7FA /* Controller */,
 				D28B28DF1F62B5B500AC906B /* AppDelegate.swift */,
-				D28B28E11F62B5B500AC906B /* ViewController.swift */,
 				D28B28E31F62B5B500AC906B /* Main.storyboard */,
 				D28B28E61F62B5B500AC906B /* Assets.xcassets */,
 				D28B28E81F62B5B500AC906B /* LaunchScreen.storyboard */,
 				D28B28EB1F62B5B500AC906B /* Info.plist */,
+				D2AFF1041F62B90300B0DCBA /* GoogleService-Info.plist */,
 			);
 			path = InstaFirebase;
+			sourceTree = "<group>";
+		};
+		D2B812481F62C9F800AFF7FA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D28B28E11F62B5B500AC906B /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		EF64658D481DA0FCC2C0C780 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4037EA7DCA9C3410C4DDDA3 /* Pods-InstaFirebase.debug.xcconfig */,
+				DA3EA04F0F488291EB74A93E /* Pods-InstaFirebase.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +128,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D28B28EE1F62B5B500AC906B /* Build configuration list for PBXNativeTarget "InstaFirebase" */;
 			buildPhases = (
+				DEC6F79F5AA51646E0FA3FED /* [CP] Check Pods Manifest.lock */,
 				D28B28D81F62B5B500AC906B /* Sources */,
 				D28B28D91F62B5B500AC906B /* Frameworks */,
 				D28B28DA1F62B5B500AC906B /* Resources */,
+				17E81F4A51ABA7114DBA44A6 /* [CP] Embed Pods Frameworks */,
+				7C34F27892F1627EF7E69D9D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2AFF1051F62B90300B0DCBA /* GoogleService-Info.plist in Resources */,
 				D28B28EA1F62B5B500AC906B /* LaunchScreen.storyboard in Resources */,
 				D28B28E71F62B5B500AC906B /* Assets.xcassets in Resources */,
 				D28B28E51F62B5B500AC906B /* Main.storyboard in Resources */,
@@ -132,13 +193,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17E81F4A51ABA7114DBA44A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstaFirebase/Pods-InstaFirebase-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C34F27892F1627EF7E69D9D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstaFirebase/Pods-InstaFirebase-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEC6F79F5AA51646E0FA3FED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D28B28D81F62B5B500AC906B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D28746BB1F62C33C002109F6 /* RoundButton.swift in Sources */,
 				D28B28E21F62B5B500AC906B /* ViewController.swift in Sources */,
 				D28B28E01F62B5B500AC906B /* AppDelegate.swift in Sources */,
+				D28746BE1F62C390002109F6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +370,7 @@
 		};
 		D28B28EF1F62B5B500AC906B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4037EA7DCA9C3410C4DDDA3 /* Pods-InstaFirebase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M2HSE9ANL8;
@@ -272,6 +384,7 @@
 		};
 		D28B28F01F62B5B500AC906B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA3EA04F0F488291EB74A93E /* Pods-InstaFirebase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M2HSE9ANL8;
@@ -302,6 +415,7 @@
 				D28B28F01F62B5B500AC906B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

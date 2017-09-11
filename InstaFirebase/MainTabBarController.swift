@@ -9,11 +9,12 @@
 import UIKit
 import Firebase
 
-class MainTabBarController: UITabBarController {
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.delegate = self
         if Auth.auth().currentUser == nil
         {
             DispatchQueue.main.async {
@@ -24,18 +25,43 @@ class MainTabBarController: UITabBarController {
             
             return
         }
+        
 
+       UINavigationBar.appearance().isHidden = false
         //UINavigationBar.appearance().barTintColor = UIColor(red: 35/255, green: 90/255, blue: 141/255, alpha: 1.0)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
         UINavigationBar.appearance().tintColor = UIColor.white
-        
-        UIApplication.shared.statusBarStyle = .lightContent
+
+        UIApplication.shared.statusBarStyle = .default
         tabBar.tintColor = .black
         
+        guard let items = tabBar.items else { return }
+        
+        for item in items
+        {
+            item.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0)
+        }
+     
         
         
     }
-
-
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        let index = viewControllers?.index(of: viewController)
+        
+        if index == 2
+        {
+            
+            self.performSegue(withIdentifier: "gotoPhotoVC", sender: nil)
+            return false
+            
+            
+        }
+        
+        return true
+            
+    }
+    
 
 }

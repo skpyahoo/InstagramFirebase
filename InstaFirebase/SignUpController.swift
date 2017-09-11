@@ -77,6 +77,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
                     }
                     
                     print("Successfully entered user information into db")
+                    self.performSegue(withIdentifier: "signUpToTabBarVC", sender: nil)
                 })
 
             })

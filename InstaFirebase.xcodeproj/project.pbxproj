@@ -23,6 +23,8 @@
 		D2E0DD691F65591800546F70 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E0DD681F65591800546F70 /* UserProfileHeader.swift */; };
 		D2E0DD6B1F65887800546F70 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E0DD6A1F65887800546F70 /* BorderButton.swift */; };
 		D2F033081F664D1A002D2CC8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F033071F664D1A002D2CC8 /* LoginVC.swift */; };
+		D2F0330A1F66DCEE002D2CC8 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F033091F66DCEE002D2CC8 /* PhotoSelectorController.swift */; };
+		D2F0330C1F66F921002D2CC8 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F0330B1F66F921002D2CC8 /* PhotoSelectorCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		D2E0DD681F65591800546F70 /* UserProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		D2E0DD6A1F65887800546F70 /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		D2F033071F664D1A002D2CC8 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		D2F033091F66DCEE002D2CC8 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
+		D2F0330B1F66F921002D2CC8 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
 		DA3EA04F0F488291EB74A93E /* Pods-InstaFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaFirebase/Pods-InstaFirebase.release.xcconfig"; sourceTree = "<group>"; };
 		F4037EA7DCA9C3410C4DDDA3 /* Pods-InstaFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaFirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaFirebase/Pods-InstaFirebase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +80,7 @@
 				D2E0DD661F65575500546F70 /* CircleImage.swift */,
 				D2E0DD681F65591800546F70 /* UserProfileHeader.swift */,
 				D2E0DD6A1F65887800546F70 /* BorderButton.swift */,
+				D2F0330B1F66F921002D2CC8 /* PhotoSelectorCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 				D219487E1F6418C700083E4E /* MainTabBarController.swift */,
 				D21948801F641B3A00083E4E /* UserProfileController.swift */,
 				D2F033071F664D1A002D2CC8 /* LoginVC.swift */,
+				D2F033091F66DCEE002D2CC8 /* PhotoSelectorController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -270,11 +276,13 @@
 				D2F033081F664D1A002D2CC8 /* LoginVC.swift in Sources */,
 				D28746BB1F62C33C002109F6 /* RoundButton.swift in Sources */,
 				D2E0DD671F65575500546F70 /* CircleImage.swift in Sources */,
+				D2F0330A1F66DCEE002D2CC8 /* PhotoSelectorController.swift in Sources */,
 				D28B28E21F62B5B500AC906B /* SignUpController.swift in Sources */,
 				D2E0DD6B1F65887800546F70 /* BorderButton.swift in Sources */,
 				D2E0DD691F65591800546F70 /* UserProfileHeader.swift in Sources */,
 				D21948811F641B3A00083E4E /* UserProfileController.swift in Sources */,
 				D219487F1F6418C700083E4E /* MainTabBarController.swift in Sources */,
+				D2F0330C1F66F921002D2CC8 /* PhotoSelectorCell.swift in Sources */,
 				D28B28E01F62B5B500AC906B /* AppDelegate.swift in Sources */,
 				D28746BE1F62C390002109F6 /* Constants.swift in Sources */,
 				D2E0DD651F6556A800546F70 /* UserCell.swift in Sources */,

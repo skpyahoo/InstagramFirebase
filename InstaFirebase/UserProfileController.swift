@@ -25,10 +25,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         collectionView?.backgroundColor = .white
         gearIcon.image = #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal)
         
-        
         fetchUser()
-        
-        //self.collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerId")
         
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
@@ -118,7 +115,9 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
             
             do {
                 try Auth.auth().signOut()
-               //self.performSegue(withIdentifier: "gotoLoginVC", sender: nil)
+                
+               self.performSegue(withIdentifier: "backToLoginVc", sender: nil)
+                
                 
             }
                 catch let signOutErr {

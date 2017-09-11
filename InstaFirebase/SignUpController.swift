@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SignUpController.swift
 //  InstaFirebase
 //
 //  Created by Sagar Pahlajani on 08/09/17.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var signUpButton: UIButton!
     @IBOutlet var userNameTextField: UITextField!
@@ -21,11 +21,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       // UINavigationBar.appearance().isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
         signUpButton.isEnabled = false
         signUpButton.backgroundColor = UIColor(red: 149/255, green: 204/255, blue: 244/255, alpha: 0.6)
         
         imagePickerController.delegate = self
+        
     }
 
 
@@ -120,5 +122,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func SignInBtnPressed(_ sender: Any) {
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
     
 }

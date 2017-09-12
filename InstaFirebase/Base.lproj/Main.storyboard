@@ -190,7 +190,7 @@
         <scene sceneID="ByI-Vv-50t">
             <objects>
                 <collectionViewController id="M4S-vT-g4p" customClass="UserProfileController" customModule="InstaFirebase" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Byv-GB-jNW">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Byv-GB-jNW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -648,10 +648,24 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoHeaderId" id="WTM-h0-GN7">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoHeaderId" id="WTM-h0-GN7" customClass="PhotoSelectorHeader" customModule="InstaFirebase" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MiK-zV-BIK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                </imageView>
+                            </subviews>
                             <color key="backgroundColor" red="1" green="0.23893522466569872" blue="0.30654188536275684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="MiK-zV-BIK" firstAttribute="leading" secondItem="WTM-h0-GN7" secondAttribute="leading" id="ExU-Vp-7U4"/>
+                                <constraint firstItem="MiK-zV-BIK" firstAttribute="top" secondItem="WTM-h0-GN7" secondAttribute="top" id="XwL-Yt-PKS"/>
+                                <constraint firstAttribute="bottom" secondItem="MiK-zV-BIK" secondAttribute="bottom" id="meX-kh-3do"/>
+                                <constraint firstAttribute="trailing" secondItem="MiK-zV-BIK" secondAttribute="trailing" id="uSF-Vd-3zG"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="photoHeaderImageView" destination="MiK-zV-BIK" id="duC-Ad-Fcq"/>
+                            </connections>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="Ed0-b9-7t3" id="OSi-km-M6w"/>

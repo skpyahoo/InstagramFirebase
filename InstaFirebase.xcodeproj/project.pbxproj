@@ -18,7 +18,7 @@
 		D28B28E71F62B5B500AC906B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28B28E61F62B5B500AC906B /* Assets.xcassets */; };
 		D28B28EA1F62B5B500AC906B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28B28E81F62B5B500AC906B /* LaunchScreen.storyboard */; };
 		D2AFF1051F62B90300B0DCBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2AFF1041F62B90300B0DCBA /* GoogleService-Info.plist */; };
-		D2E0DD651F6556A800546F70 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E0DD641F6556A800546F70 /* UserCell.swift */; };
+		D2E0DD651F6556A800546F70 /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E0DD641F6556A800546F70 /* PhotoSelectorHeader.swift */; };
 		D2E0DD671F65575500546F70 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E0DD661F65575500546F70 /* CircleImage.swift */; };
 		D2E0DD691F65591800546F70 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E0DD681F65591800546F70 /* UserProfileHeader.swift */; };
 		D2E0DD6B1F65887800546F70 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E0DD6A1F65887800546F70 /* BorderButton.swift */; };
@@ -41,7 +41,7 @@
 		D28B28E91F62B5B500AC906B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D28B28EB1F62B5B500AC906B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AFF1041F62B90300B0DCBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D2E0DD641F6556A800546F70 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		D2E0DD641F6556A800546F70 /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
 		D2E0DD661F65575500546F70 /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		D2E0DD681F65591800546F70 /* UserProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		D2E0DD6A1F65887800546F70 /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				D28746BA1F62C33C002109F6 /* RoundButton.swift */,
-				D2E0DD641F6556A800546F70 /* UserCell.swift */,
+				D2E0DD641F6556A800546F70 /* PhotoSelectorHeader.swift */,
 				D2E0DD661F65575500546F70 /* CircleImage.swift */,
 				D2E0DD681F65591800546F70 /* UserProfileHeader.swift */,
 				D2E0DD6A1F65887800546F70 /* BorderButton.swift */,
@@ -285,7 +285,7 @@
 				D2F0330C1F66F921002D2CC8 /* PhotoSelectorCell.swift in Sources */,
 				D28B28E01F62B5B500AC906B /* AppDelegate.swift in Sources */,
 				D28746BE1F62C390002109F6 /* Constants.swift in Sources */,
-				D2E0DD651F6556A800546F70 /* UserCell.swift in Sources */,
+				D2E0DD651F6556A800546F70 /* PhotoSelectorHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

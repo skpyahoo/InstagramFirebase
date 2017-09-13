@@ -632,7 +632,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="58" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Ry-QF-pxW">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Ry-QF-pxW">
                                             <rect key="frame" x="0.0" y="0.0" width="58" height="59"/>
                                         </imageView>
                                     </subviews>
@@ -681,6 +681,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" style="plain" id="MRb-Sd-qQj">
                             <connections>
                                 <action selector="nextBtnPressed:" destination="Ed0-b9-7t3" id="Mak-om-Crf"/>
+                                <segue destination="h7D-Go-Rma" kind="show" identifier="gotoShareVC" id="e1K-CI-7vD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -690,10 +691,10 @@
             </objects>
             <point key="canvasLocation" x="1570.4000000000001" y="71.514242878560722"/>
         </scene>
-        <!--View Controller-->
+        <!--Share Photo Controller-->
         <scene sceneID="pGc-CG-Ydb">
             <objects>
-                <viewController id="h7D-Go-Rma" sceneMemberID="viewController">
+                <viewController id="h7D-Go-Rma" customClass="SharePhotoController" customModule="InstaFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tIg-R5-4wx"/>
                         <viewControllerLayoutGuide type="bottom" id="ErE-uB-jyB"/>
@@ -701,10 +702,58 @@
                     <view key="view" contentMode="scaleToFill" id="Rpf-aE-I2R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaZ-m5-CFY">
+                                <rect key="frame" x="0.0" y="44" width="375" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="ah9-by-H2D"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="cYk-hT-VGe" kind="embed" id="QfQ-JD-Meo"/>
+                                </connections>
+                            </containerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i7Y-vQ-BHF">
+                                <rect key="frame" x="104" y="44" width="255" height="92"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="92" id="eOn-9x-rda"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-li-fF4">
+                                <rect key="frame" x="16" y="52" width="84" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="T2F-X8-lwG"/>
+                                    <constraint firstAttribute="width" constant="84" id="h16-P8-TFf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BaZ-m5-CFY" firstAttribute="trailing" secondItem="Rpf-aE-I2R" secondAttribute="trailingMargin" constant="16" id="KYa-GY-Ov8"/>
+                            <constraint firstItem="BaZ-m5-CFY" firstAttribute="leading" secondItem="Rpf-aE-I2R" secondAttribute="leadingMargin" constant="-16" id="Kdl-ne-IvP"/>
+                            <constraint firstItem="vgU-li-fF4" firstAttribute="top" secondItem="tIg-R5-4wx" secondAttribute="bottom" constant="8" id="LYh-ZD-Kxu"/>
+                            <constraint firstItem="i7Y-vQ-BHF" firstAttribute="leading" secondItem="vgU-li-fF4" secondAttribute="trailing" constant="4" id="bmJ-Ce-NC4"/>
+                            <constraint firstItem="i7Y-vQ-BHF" firstAttribute="top" secondItem="tIg-R5-4wx" secondAttribute="bottom" id="dEq-6I-PNv"/>
+                            <constraint firstItem="vgU-li-fF4" firstAttribute="leading" secondItem="Rpf-aE-I2R" secondAttribute="leadingMargin" id="iR8-Q1-oG3"/>
+                            <constraint firstItem="i7Y-vQ-BHF" firstAttribute="trailing" secondItem="Rpf-aE-I2R" secondAttribute="trailingMargin" id="ryf-Vt-U6v"/>
+                            <constraint firstItem="BaZ-m5-CFY" firstAttribute="top" secondItem="tIg-R5-4wx" secondAttribute="bottom" id="tFP-Uf-skl"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="plus_unselected" selectedImage="plus_unselected" id="Kgs-Yg-gRs"/>
-                    <navigationItem key="navigationItem" id="9FF-HZ-Fe5"/>
+                    <navigationItem key="navigationItem" id="9FF-HZ-Fe5">
+                        <barButtonItem key="rightBarButtonItem" title="Share" style="plain" id="KZL-t6-Uj9">
+                            <connections>
+                                <action selector="sharePhotoBtnPressed:" destination="h7D-Go-Rma" id="BPJ-fZ-cMr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="SelectedPhotoImageView" destination="vgU-li-fF4" id="Lbj-fp-Mvh"/>
+                        <outlet property="containerView" destination="BaZ-m5-CFY" id="Hah-d4-hCS"/>
+                        <outlet property="textView" destination="i7Y-vQ-BHF" id="bDu-Lg-SNI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdh-Gv-wvw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -843,6 +892,19 @@
             </objects>
             <point key="canvasLocation" x="629.60000000000002" y="71.514242878560722"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="F5W-86-Cx9">
+            <objects>
+                <viewController id="cYk-hT-VGe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ND9-db-VrY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aF0-mz-Ajl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="Instagram_logo_white" width="200" height="71"/>
@@ -865,5 +927,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="JGo-ny-JD5"/>
         <segue reference="WPj-Qp-KJ8"/>
+        <segue reference="e1K-CI-7vD"/>
     </inferredMetricsTieBreakers>
 </document>

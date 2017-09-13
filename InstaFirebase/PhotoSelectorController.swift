@@ -17,6 +17,7 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     var images = [UIImage]()
     var assets = [PHAsset]()
     var selectedImage: UIImage?
+    var header: PhotoSelectorHeader?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,16 +36,24 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
         fetchPhotos()
 
         // Do any additional setup after loading the view.
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        UINavigationBar.appearance().tintColor = .black
+        UIApplication.shared.isStatusBarHidden = true
+        
+    }
+    
     fileprivate func assestFetchOptions() -> PHFetchOptions
     {
         let fetchOptions = PHFetchOptions()
-        fetchOptions.fetchLimit = 20
+        fetchOptions.fetchLimit = 30
         
         let sortDescriptors = NSSortDescriptor(key: "creationDate", ascending: false)
         fetchOptions.sortDescriptors = [sortDescriptors]
@@ -61,7 +70,7 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
             
             allPhotos.enumerateObjects({ (asset, count, stop) in
                 
-                print(count)
+                
                 
                 let imageManager = PHImageManager.default()
                 let targetSize = CGSize(width: 200, height: 200)
@@ -126,6 +135,10 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
         
         self.selectedImage = images[indexPath.item]
         self.collectionView?.reloadData()
+        
+        let indexPath = IndexPath(item: 0, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -146,6 +159,8 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
         
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! PhotoSelectorHeader
+        
+        self.header = header
         
         header.photoHeaderImageView.image = selectedImage
         
@@ -184,7 +199,15 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
         return UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "gotoShareVC"
+        {
+            let shareController: SharePhotoController = segue.destination as! SharePhotoController
+            shareController.selectedImage = header?.photoHeaderImageView.image
+        }
+        
+    }
     
     
 

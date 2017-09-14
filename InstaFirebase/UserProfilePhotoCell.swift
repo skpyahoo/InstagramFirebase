@@ -10,32 +10,16 @@ import UIKit
 
 class UserProfilePhotoCell: UICollectionViewCell {
     
-    @IBOutlet var postImageView: UIImageView!
+    @IBOutlet var postImageView: CustomImageView!
     
     var post: Posts? {
         didSet {
             
             guard let imageUrl = post?.imageUrl else { return }
             
-            guard let url = URL(string: imageUrl) else { return }
+            postImageView.loadImage(urlString: imageUrl)
             
-            URLSession.shared.dataTask(with: url) { (data, response, err) in
-                
-                if let err = err
-                {
-                    print("Failed to fecth Post Image", err)
-                    return
-                }
-                guard let imageData = data else {return}
-                
-                let photoImage = UIImage(data: imageData)
-                
-                DispatchQueue.main.async {
-                 self.postImageView.image = photoImage
-                    
-                }
-                
-            }.resume()
+            
             
         }
         

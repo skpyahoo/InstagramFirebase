@@ -30,20 +30,21 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         UINavigationBar.appearance().tintColor = UIColor.white
         
         fetchUser()
-        fetchPosts()
+        //fetchPosts()
+        fetchOrderedPost()
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        collectionView?.backgroundColor = .white
-        gearIcon.image = #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal)
-        UINavigationBar.appearance().tintColor = UIColor.white
-        
-        //fetchUser()
-        fetchPosts()
-        
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        
+//        collectionView?.backgroundColor = .white
+//        gearIcon.image = #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal)
+//        UINavigationBar.appearance().tintColor = UIColor.white
+//        
+//        //fetchUser()
+//        fetchPosts()
+//        
+//    }
 
  
 
@@ -107,6 +108,30 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
             }
         })
      }
+    
+    fileprivate func fetchOrderedPost()
+    {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        let ref = Database.database().reference().child("posts").child(uid)
+        
+        ref.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
+            
+            //print(snapshot.key, snapshot.value ?? "")
+            
+            guard let dict = snapshot.value  as? [String: Any] else { return }
+            
+            let post = Posts(dict: dict)
+            self.posts.append(post)
+            
+            self.collectionView?.reloadData()
+            
+        }) { (err) in
+            
+            print("Failed to fetch Ordered Posts",err)
+        }
+        
+    }
     
     fileprivate func fetchPosts()
     {

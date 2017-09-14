@@ -14,12 +14,16 @@ class UserProfileHeader: UICollectionViewCell {
     @IBOutlet var listButton: UIButton!
     @IBOutlet var ribbonButton: UIButton!
     @IBOutlet var userNameLabel: UILabel!
-    @IBOutlet var profileImageView: CircleImage!
+    @IBOutlet var profileImageView: CustomImageView!
+    
     
     
     var user: User? {
         didSet {
-            setupProfileImage()
+            guard let profileImgUrl = user?.profileImageUrl else { return }
+            
+            profileImageView.loadImage(urlString: profileImgUrl)
+            
             userNameLabel.text = self.user?.username
         }
     }
@@ -29,6 +33,8 @@ class UserProfileHeader: UICollectionViewCell {
         super.awakeFromNib()
         
     }
+    
+    
     @IBAction func gridBtnPressed(_ sender: Any) {
     }
 
@@ -39,34 +45,6 @@ class UserProfileHeader: UICollectionViewCell {
     @IBAction func listButtonPressed(_ sender: Any) {
     }
     
-    fileprivate func setupProfileImage()
-    {
-        guard let profileImageUrl = user?.profileImageUrl else { return }
-        //print("Profile Image got",profileImageUrl)
-        
-        guard let url = URL(string: profileImageUrl) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
-            
-            // print(data)
-            if let err = err
-            {
-                print("Falied to fetch error", err)
-                return
-            }
-            
-            guard let data = data else { return }
-            
-            let image = UIImage(data: data)
-            
-            DispatchQueue.main.async {
-                
-                self.profileImageView.image = image
-            }
-            
-            }.resume()
-        
-    }
     
     
 }

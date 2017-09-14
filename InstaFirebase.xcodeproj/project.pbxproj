@@ -24,6 +24,9 @@
 		D2E0DD671F65575500546F70 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E0DD661F65575500546F70 /* CircleImage.swift */; };
 		D2E0DD691F65591800546F70 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E0DD681F65591800546F70 /* UserProfileHeader.swift */; };
 		D2E0DD6B1F65887800546F70 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E0DD6A1F65887800546F70 /* BorderButton.swift */; };
+		D2E947351F6AE3DE00BA9C31 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E947341F6AE3DE00BA9C31 /* CustomImageView.swift */; };
+		D2E947371F6AF06C00BA9C31 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E947361F6AF06C00BA9C31 /* HomeController.swift */; };
+		D2E947391F6AF11500BA9C31 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E947381F6AF11500BA9C31 /* HomeCell.swift */; };
 		D2EB00121F692A19006F5513 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB00111F692A19006F5513 /* SharePhotoController.swift */; };
 		D2F033081F664D1A002D2CC8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F033071F664D1A002D2CC8 /* LoginVC.swift */; };
 		D2F0330A1F66DCEE002D2CC8 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F033091F66DCEE002D2CC8 /* PhotoSelectorController.swift */; };
@@ -50,6 +53,9 @@
 		D2E0DD661F65575500546F70 /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		D2E0DD681F65591800546F70 /* UserProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		D2E0DD6A1F65887800546F70 /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
+		D2E947341F6AE3DE00BA9C31 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		D2E947361F6AF06C00BA9C31 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		D2E947381F6AF11500BA9C31 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		D2EB00111F692A19006F5513 /* SharePhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePhotoController.swift; sourceTree = "<group>"; };
 		D2F033071F664D1A002D2CC8 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D2F033091F66DCEE002D2CC8 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 				D2E0DD6A1F65887800546F70 /* BorderButton.swift */,
 				D2F0330B1F66F921002D2CC8 /* PhotoSelectorCell.swift */,
 				D28C3D571F6A8CC200C07B3B /* UserProfilePhotoCell.swift */,
+				D2E947381F6AF11500BA9C31 /* HomeCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -96,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				D28746BD1F62C390002109F6 /* Constants.swift */,
+				D2E947341F6AE3DE00BA9C31 /* CustomImageView.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -152,6 +160,7 @@
 				D2F033071F664D1A002D2CC8 /* LoginVC.swift */,
 				D2F033091F66DCEE002D2CC8 /* PhotoSelectorController.swift */,
 				D2EB00111F692A19006F5513 /* SharePhotoController.swift */,
+				D2E947361F6AF06C00BA9C31 /* HomeController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -292,6 +301,7 @@
 			files = (
 				D2F033081F664D1A002D2CC8 /* LoginVC.swift in Sources */,
 				D28746BB1F62C33C002109F6 /* RoundButton.swift in Sources */,
+				D2E947391F6AF11500BA9C31 /* HomeCell.swift in Sources */,
 				D2E0DD671F65575500546F70 /* CircleImage.swift in Sources */,
 				D2F0330A1F66DCEE002D2CC8 /* PhotoSelectorController.swift in Sources */,
 				D2EB00121F692A19006F5513 /* SharePhotoController.swift in Sources */,
@@ -304,7 +314,9 @@
 				D2F0330C1F66F921002D2CC8 /* PhotoSelectorCell.swift in Sources */,
 				D28B28E01F62B5B500AC906B /* AppDelegate.swift in Sources */,
 				D28746BE1F62C390002109F6 /* Constants.swift in Sources */,
+				D2E947371F6AF06C00BA9C31 /* HomeController.swift in Sources */,
 				D2E0DD651F6556A800546F70 /* PhotoSelectorHeader.swift in Sources */,
+				D2E947351F6AE3DE00BA9C31 /* CustomImageView.swift in Sources */,
 				D28C3D581F6A8CC200C07B3B /* UserProfilePhotoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,6 +14,9 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     @IBOutlet var gearIcon: UIBarButtonItem!
 
     var user: User?
+    var posts = [Posts]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,12 +27,22 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         
         collectionView?.backgroundColor = .white
         gearIcon.image = #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal)
+        UINavigationBar.appearance().tintColor = UIColor.white
         
         fetchUser()
+        fetchPosts()
         
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        collectionView?.backgroundColor = .white
+        gearIcon.image = #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal)
+        UINavigationBar.appearance().tintColor = UIColor.white
+        
+        //fetchUser()
+        fetchPosts()
+        
     }
 
  
@@ -42,15 +55,15 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 7
+        return posts.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! UserProfilePhotoCell
     
         // Configure the cell
-        cell.backgroundColor = .purple
         
+        cell.post = posts[indexPath.item]
     
         return cell
     }
@@ -94,6 +107,40 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
             }
         })
      }
+    
+    fileprivate func fetchPosts()
+    {
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        let ref = Database.database().reference().child("posts").child(uid)
+        
+        ref.observeSingleEvent(of: .value, with: { (sanpshot) in
+            
+            print(sanpshot.value ?? "")
+            
+            self.posts =  []
+            
+            guard let userPostsDict = sanpshot.value as? [String: Any] else { return }
+            userPostsDict.forEach({ (key, value) in
+                
+                //print("Key \(key), Value:\(value)")
+                
+                guard let postValueDict = value as? [String: Any] else { return }
+                
+                let post = Posts(dict: postValueDict)
+                self.posts.append(post)
+
+            })
+            
+            self.collectionView?.reloadData()
+            
+        }) { (err) in
+            print("Failed to fetch Posts",err)
+        }
+        
+    }
+    
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         

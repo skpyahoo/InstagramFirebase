@@ -201,13 +201,27 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Guw-Dt-09Q">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Guw-Dt-09Q" customClass="UserProfilePhotoCell" customModule="InstaFirebase" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="200" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bbv-ag-3EM">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Bbv-ag-3EM" secondAttribute="bottom" id="k1a-tb-Yng"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bbv-ag-3EM" secondAttribute="trailing" id="wbR-BM-oiX"/>
+                                    <constraint firstItem="Bbv-ag-3EM" firstAttribute="top" secondItem="Guw-Dt-09Q" secondAttribute="top" id="ydH-po-hAB"/>
+                                    <constraint firstItem="Bbv-ag-3EM" firstAttribute="leading" secondItem="Guw-Dt-09Q" secondAttribute="leading" id="ywy-ug-Vv9"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="postImageView" destination="Bbv-ag-3EM" id="8g4-cb-9fJ"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerId" id="lvP-VD-11u" customClass="UserProfileHeader" customModule="InstaFirebase" customModuleProvider="target">
@@ -896,6 +910,10 @@
         <scene sceneID="F5W-86-Cx9">
             <objects>
                 <viewController id="cYk-hT-VGe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BhE-2o-jDL"/>
+                        <viewControllerLayoutGuide type="bottom" id="cSO-OM-LJb"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ND9-db-VrY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -28,8 +28,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
 
        UINavigationBar.appearance().isHidden = false
-        //UINavigationBar.appearance().barTintColor = UIColor(red: 35/255, green: 90/255, blue: 141/255, alpha: 1.0)
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
         UINavigationBar.appearance().tintColor = UIColor.white
 
         UIApplication.shared.statusBarStyle = .default

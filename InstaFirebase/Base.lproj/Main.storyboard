@@ -797,37 +797,69 @@
         <scene sceneID="IzF-M7-cUt">
             <objects>
                 <collectionViewController id="oGe-a9-E9I" customClass="HomeController" customModule="InstaFirebase" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="pbe-Jq-Fj0">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pbe-Jq-Fj0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7A7-Db-AVk">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="374" height="201"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCell" id="CgO-2V-J2N" customClass="HomeCell" customModule="InstaFirebase" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.5" y="0.0" width="374" height="201"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="201"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sTj-DG-zjJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sTj-DG-zjJ" customClass="CustomImageView" customModule="InstaFirebase" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="64" width="374" height="137"/>
                                         </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera3" translatesAutoresizingMaskIntoConstraints="NO" id="3LB-wv-vMW" customClass="CustomImageView" customModule="InstaFirebase" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="16" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="bEg-nI-Jba"/>
+                                                <constraint firstAttribute="width" constant="40" id="tel-xb-3nZ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOT-Wp-VWG">
+                                            <rect key="frame" x="64" y="8" width="258" height="56"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Baf-UN-f6X">
+                                            <rect key="frame" x="322" y="8" width="44" height="56"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="1i8-fd-HpT"/>
+                                            </constraints>
+                                            <state key="normal" title="•••">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="sTj-DG-zjJ" secondAttribute="trailing" id="9Cq-wR-yBn"/>
-                                    <constraint firstItem="sTj-DG-zjJ" firstAttribute="top" secondItem="CgO-2V-J2N" secondAttribute="top" id="i2z-Zy-Bfd"/>
-                                    <constraint firstAttribute="bottom" secondItem="sTj-DG-zjJ" secondAttribute="bottom" id="j99-Ag-Nzx"/>
-                                    <constraint firstItem="sTj-DG-zjJ" firstAttribute="leading" secondItem="CgO-2V-J2N" secondAttribute="leading" id="wNZ-Pd-dFa"/>
+                                    <constraint firstItem="3LB-wv-vMW" firstAttribute="top" secondItem="CgO-2V-J2N" secondAttribute="topMargin" constant="8" id="4cN-lI-rh8"/>
+                                    <constraint firstItem="sTj-DG-zjJ" firstAttribute="top" secondItem="Baf-UN-f6X" secondAttribute="bottom" id="AFy-n4-caH"/>
+                                    <constraint firstItem="sTj-DG-zjJ" firstAttribute="leading" secondItem="CgO-2V-J2N" secondAttribute="leading" id="Agz-4m-Q1X"/>
+                                    <constraint firstItem="sTj-DG-zjJ" firstAttribute="top" secondItem="3LB-wv-vMW" secondAttribute="bottom" constant="8" id="KWu-Og-3f3"/>
+                                    <constraint firstAttribute="bottom" secondItem="sTj-DG-zjJ" secondAttribute="bottom" id="epW-eP-dDp"/>
+                                    <constraint firstItem="3LB-wv-vMW" firstAttribute="leading" secondItem="CgO-2V-J2N" secondAttribute="leadingMargin" constant="8" id="lvg-Qk-eXu"/>
+                                    <constraint firstItem="FOT-Wp-VWG" firstAttribute="top" secondItem="CgO-2V-J2N" secondAttribute="topMargin" id="nwD-V7-Ggc"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Baf-UN-f6X" secondAttribute="trailing" id="pMc-5n-mgB"/>
+                                    <constraint firstItem="sTj-DG-zjJ" firstAttribute="top" secondItem="FOT-Wp-VWG" secondAttribute="bottom" id="ptc-ug-l8r"/>
+                                    <constraint firstItem="Baf-UN-f6X" firstAttribute="top" secondItem="CgO-2V-J2N" secondAttribute="topMargin" id="q0b-di-8RS"/>
+                                    <constraint firstAttribute="trailing" secondItem="sTj-DG-zjJ" secondAttribute="trailing" id="sGY-Fy-cS8"/>
+                                    <constraint firstItem="FOT-Wp-VWG" firstAttribute="leading" secondItem="3LB-wv-vMW" secondAttribute="trailing" constant="8" id="wE8-oh-6R0"/>
+                                    <constraint firstItem="Baf-UN-f6X" firstAttribute="leading" secondItem="FOT-Wp-VWG" secondAttribute="trailing" id="zQb-yA-Aqm"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="homeCellPhotoImageView" destination="sTj-DG-zjJ" id="Mzs-dI-XAD"/>
+                                    <outlet property="userProfileImageView" destination="3LB-wv-vMW" id="638-hx-cY7"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -840,7 +872,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLK-fn-6S8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7506" y="72"/>
+            <point key="canvasLocation" x="7504.8000000000002" y="71.514242878560722"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OTQ-h8-FTq">
@@ -939,6 +971,7 @@
     <resources>
         <image name="Instagram_logo_white" width="200" height="71"/>
         <image name="ad6eaceb600c46dc4119d6e0f66386e1" width="564" height="1055"/>
+        <image name="camera3" width="22" height="19"/>
         <image name="gear" width="25" height="25"/>
         <image name="grid" width="22" height="22"/>
         <image name="home_selected" width="22" height="22"/>

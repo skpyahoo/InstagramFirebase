@@ -11,6 +11,23 @@ import UIKit
 class HomeCell: UICollectionViewCell {
     
     
-    @IBOutlet var homeCellPhotoImageView: UIImageView!
+    @IBOutlet var homeCellPhotoImageView: CustomImageView!
+    @IBOutlet var userProfileImageView: CustomImageView!
+    var post: Posts? {
+        didSet {
+            guard let postImageUrl = post?.imageUrl else { return }
+            
+            homeCellPhotoImageView.loadImage(urlString: postImageUrl)
+            
+            
+        }
+    }
+    
+    override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        userProfileImageView.layer.cornerRadius = 40 / 2
+        self.backgroundColor = .gray
+    }
     
 }

@@ -11,8 +11,12 @@ import UIKit
 struct Posts {
 
     let imageUrl: String
+    let user: User
+    let caption: String
     
-    init(dict: [String: Any]) {
+    init(user: User, dict: [String: Any]) {
         self.imageUrl = dict["imageUrl"] as? String ?? ""
+        self.user = user
+        self.caption = dict["caption"] as? String ?? ""
     }
 }

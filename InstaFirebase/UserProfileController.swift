@@ -89,25 +89,17 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     fileprivate func fetchUser()
     {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            if let _ = snapshot.value as? NSNull
-            {
-                print("Failed to fetch user")
-            }
-            else
-            {
-                print("Sanpshot value", snapshot.value ?? "")
-                
-                guard let currentUserProfile = snapshot.value as? [String: Any] else { return }
-                
-                self.user = User(dictinary: currentUserProfile)
         
-                self.navigationItem.title = self.user?.username
-                self.collectionView?.reloadData()
-            }
-        })
-     }
+        Database.fetchUserWithUID(uid: uid) { (user) in
+            
+            self.user = user
+            self.navigationItem.title = self.user?.username
+            
+            self.collectionView?.reloadData()
+        }
+        
+        
+    }
     
     fileprivate func fetchOrderedPost()
     {
@@ -121,8 +113,11 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
             
             guard let dict = snapshot.value  as? [String: Any] else { return }
             
-            let post = Posts(dict: dict)
-            self.posts.append(post)
+            guard let user = self.user else { return }
+            let post = Posts(user: user, dict: dict)
+           
+            self.posts.insert(post, at: 0)
+            //self.posts.append(post)
             
             self.collectionView?.reloadData()
             
@@ -133,38 +128,8 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         
     }
     
-    fileprivate func fetchPosts()
-    {
-        
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        
-        let ref = Database.database().reference().child("posts").child(uid)
-        
-        ref.observeSingleEvent(of: .value, with: { (sanpshot) in
-            
-            print(sanpshot.value ?? "")
-            
-            self.posts =  []
-            
-            guard let userPostsDict = sanpshot.value as? [String: Any] else { return }
-            userPostsDict.forEach({ (key, value) in
-                
-                //print("Key \(key), Value:\(value)")
-                
-                guard let postValueDict = value as? [String: Any] else { return }
-                
-                let post = Posts(dict: postValueDict)
-                self.posts.append(post)
-
-            })
-            
-            self.collectionView?.reloadData()
-            
-        }) { (err) in
-            print("Failed to fetch Posts",err)
-        }
-        
-    }
+    
+    
     
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -207,15 +172,3 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     
 }
 
-struct User {
-    
-    let username: String
-    let profileImageUrl: String
-    
-    init(dictinary: [String: Any]) {
-        
-        self.username = dictinary["username"] as? String ?? ""
-        self.profileImageUrl = dictinary["profileImageUrl"] as? String ?? ""
-    }
-    
-}

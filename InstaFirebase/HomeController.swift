@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+
+
 private let reuseIdentifier = "HomeCell"
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -50,6 +52,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         var height: CGFloat = 40 + 8 + 8
         height += view.frame.width
+        height += 50
+        height += 60
         
         return CGSize(width: view.frame.width, height: height)
     }
@@ -59,8 +63,18 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        let ref = Database.database().reference().child("posts").child(uid)
+        Database.fetchUserWithUID(uid: uid) { (user) in
+            
+            self.fetchPostsWithUser(user: user)
+            
+        }
         
+    }
+    
+    fileprivate func fetchPostsWithUser(user: User)
+    {
+        
+        let ref =  Database.database().reference().child("posts").child(user.uid)
         ref.observeSingleEvent(of: .value, with: { (sanpshot) in
             
             print(sanpshot.value ?? "")
@@ -74,7 +88,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                 
                 guard let postValueDict = value as? [String: Any] else { return }
                 
-                let post = Posts(dict: postValueDict)
+                let post = Posts(user: user, dict: postValueDict)
+                
+                //let post = Posts(dict: postValueDict)
                 self.posts.append(post)
                 
             })

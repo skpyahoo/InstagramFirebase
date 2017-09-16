@@ -31,6 +31,11 @@
 		D2F033081F664D1A002D2CC8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F033071F664D1A002D2CC8 /* LoginVC.swift */; };
 		D2F0330A1F66DCEE002D2CC8 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F033091F66DCEE002D2CC8 /* PhotoSelectorController.swift */; };
 		D2F0330C1F66F921002D2CC8 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F0330B1F66F921002D2CC8 /* PhotoSelectorCell.swift */; };
+		D2F6833F1F6D6A1100D340E9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6833E1F6D6A1100D340E9 /* User.swift */; };
+		D2F683411F6D737000D340E9 /* FirebaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F683401F6D737000D340E9 /* FirebaseUtil.swift */; };
+		D2F683431F6D74EF00D340E9 /* UserSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F683421F6D74EF00D340E9 /* UserSearchController.swift */; };
+		D2F683451F6D81D600D340E9 /* UserSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F683441F6D81D600D340E9 /* UserSearchCell.swift */; };
+		D2FA44751F6D064E0099AF60 /* ButtonSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FA44741F6D064E0099AF60 /* ButtonSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +65,11 @@
 		D2F033071F664D1A002D2CC8 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D2F033091F66DCEE002D2CC8 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
 		D2F0330B1F66F921002D2CC8 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
+		D2F6833E1F6D6A1100D340E9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D2F683401F6D737000D340E9 /* FirebaseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUtil.swift; sourceTree = "<group>"; };
+		D2F683421F6D74EF00D340E9 /* UserSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchController.swift; sourceTree = "<group>"; };
+		D2F683441F6D81D600D340E9 /* UserSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchCell.swift; sourceTree = "<group>"; };
+		D2FA44741F6D064E0099AF60 /* ButtonSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonSettings.swift; sourceTree = "<group>"; };
 		DA3EA04F0F488291EB74A93E /* Pods-InstaFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaFirebase/Pods-InstaFirebase.release.xcconfig"; sourceTree = "<group>"; };
 		F4037EA7DCA9C3410C4DDDA3 /* Pods-InstaFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaFirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaFirebase/Pods-InstaFirebase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +105,8 @@
 				D2F0330B1F66F921002D2CC8 /* PhotoSelectorCell.swift */,
 				D28C3D571F6A8CC200C07B3B /* UserProfilePhotoCell.swift */,
 				D2E947381F6AF11500BA9C31 /* HomeCell.swift */,
+				D2FA44741F6D064E0099AF60 /* ButtonSettings.swift */,
+				D2F683441F6D81D600D340E9 /* UserSearchCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -104,6 +116,7 @@
 			children = (
 				D28746BD1F62C390002109F6 /* Constants.swift */,
 				D2E947341F6AE3DE00BA9C31 /* CustomImageView.swift */,
+				D2F683401F6D737000D340E9 /* FirebaseUtil.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -147,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				D28C3D551F6A8A2D00C07B3B /* Posts.swift */,
+				D2F6833E1F6D6A1100D340E9 /* User.swift */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -161,6 +175,7 @@
 				D2F033091F66DCEE002D2CC8 /* PhotoSelectorController.swift */,
 				D2EB00111F692A19006F5513 /* SharePhotoController.swift */,
 				D2E947361F6AF06C00BA9C31 /* HomeController.swift */,
+				D2F683421F6D74EF00D340E9 /* UserSearchController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -299,9 +314,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2FA44751F6D064E0099AF60 /* ButtonSettings.swift in Sources */,
 				D2F033081F664D1A002D2CC8 /* LoginVC.swift in Sources */,
 				D28746BB1F62C33C002109F6 /* RoundButton.swift in Sources */,
 				D2E947391F6AF11500BA9C31 /* HomeCell.swift in Sources */,
+				D2F683451F6D81D600D340E9 /* UserSearchCell.swift in Sources */,
 				D2E0DD671F65575500546F70 /* CircleImage.swift in Sources */,
 				D2F0330A1F66DCEE002D2CC8 /* PhotoSelectorController.swift in Sources */,
 				D2EB00121F692A19006F5513 /* SharePhotoController.swift in Sources */,
@@ -312,12 +329,15 @@
 				D21948811F641B3A00083E4E /* UserProfileController.swift in Sources */,
 				D219487F1F6418C700083E4E /* MainTabBarController.swift in Sources */,
 				D2F0330C1F66F921002D2CC8 /* PhotoSelectorCell.swift in Sources */,
+				D2F683411F6D737000D340E9 /* FirebaseUtil.swift in Sources */,
 				D28B28E01F62B5B500AC906B /* AppDelegate.swift in Sources */,
 				D28746BE1F62C390002109F6 /* Constants.swift in Sources */,
 				D2E947371F6AF06C00BA9C31 /* HomeController.swift in Sources */,
+				D2F683431F6D74EF00D340E9 /* UserSearchController.swift in Sources */,
 				D2E0DD651F6556A800546F70 /* PhotoSelectorHeader.swift in Sources */,
 				D2E947351F6AE3DE00BA9C31 /* CustomImageView.swift in Sources */,
 				D28C3D581F6A8CC200C07B3B /* UserProfilePhotoCell.swift in Sources */,
+				D2F6833F1F6D6A1100D340E9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

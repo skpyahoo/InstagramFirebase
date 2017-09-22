@@ -60,6 +60,7 @@ class LoginVC: UIViewController {
             if let err = err
             {
                 print("Failed to Sign in with email", err)
+                return
             }
             
             print("Successfully logged back in with user", user?.uid ?? "")

@@ -14,6 +14,16 @@ class UserSearchCell: UICollectionViewCell {
     @IBOutlet var profileImageView: CustomImageView!
     @IBOutlet var usernameLabel: UILabel!
     
+    var user: User? {
+        
+        didSet {
+            usernameLabel.text = user?.username
+            
+            guard let profileImgUrl = user?.profileImageUrl  else { return }
+            profileImageView.loadImage(urlString: profileImgUrl)
+        }
+    }
+    
     
     override func awakeFromNib() {
         

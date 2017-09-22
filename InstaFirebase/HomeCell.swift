@@ -39,13 +39,13 @@ class HomeCell: UICollectionViewCell {
     {
         guard let post = self.post  else { return }
         
-        let attributedText = NSMutableAttributedString(string: post.user.username, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 13)])
+        let attributedText = NSMutableAttributedString(string: post.user.username, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 13)])
         
-        attributedText.append(NSAttributedString(string: " \(post.caption)", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 13)]))
+        attributedText.append(NSAttributedString(string: " \(post.caption)", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)]))
         
-        attributedText.append(NSAttributedString(string: " \n\n", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 4)]))
+        attributedText.append(NSAttributedString(string: " \n\n", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 4)]))
         
-        attributedText.append(NSAttributedString(string: "1 week ago", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 13), NSForegroundColorAttributeName: UIColor.gray]))
+        attributedText.append(NSAttributedString(string: "1 week ago", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13), NSAttributedStringKey.foregroundColor: UIColor.gray]))
         
         captionLabel.attributedText = attributedText
         

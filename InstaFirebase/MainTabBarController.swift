@@ -28,7 +28,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
 
        UINavigationBar.appearance().isHidden = false
-        UINavigationBar.appearance().tintColor = UIColor.white
+        //UINavigationBar.appearance().tintColor = UIColor.white
 
         UIApplication.shared.statusBarStyle = .default
         tabBar.tintColor = .black

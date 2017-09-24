@@ -16,6 +16,7 @@ class SharePhotoController: UIViewController {
     @IBOutlet var textView: UITextView!
     
     var selectedImage: UIImage?
+    static let updateFeedNotificationName = NSNotification.Name(rawValue: "UpdateFeed")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +94,10 @@ class SharePhotoController: UIViewController {
             
             print("Successfully uploaded post to DB")
             self.dismiss(animated: true, completion: nil)
+            
+            
+            NotificationCenter.default.post(name: SharePhotoController.updateFeedNotificationName, object: nil)
+            
         }
     }
 }

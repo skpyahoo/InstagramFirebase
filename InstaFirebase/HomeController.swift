@@ -19,17 +19,39 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateFeed), name: SharePhotoController.updateFeedNotificationName, object: nil)
+        
         navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logo2"))
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        
+        collectionView?.refreshControl = refreshControl
+        
+        fetchAllPosts()
+
+    }
+    
+    @objc func handleUpdateFeed()
+    {
+        handleRefresh()
+    }
+
+    @objc func handleRefresh()
+{
+    posts.removeAll()
+    fetchAllPosts()
+    
+}
+    
+    fileprivate func fetchAllPosts()
+    {
         fetchPosts()
-
+        fetchFollowingUserIds()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
     
 
 
@@ -71,15 +93,36 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
     }
     
+    fileprivate func fetchFollowingUserIds()
+    {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        
+        Database.database().reference().child("following").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+          
+            guard let userDictionary = snapshot.value as? [String: Any] else {return}
+            
+            userDictionary.forEach({ (key, value) in
+                Database.fetchUserWithUID(uid: key, completion: { (user) in
+                    
+                    self.fetchPostsWithUser(user: user)
+                })
+            })
+            
+        }) { (err) in
+            print("Faled to Fetch following users posts", err)
+        }
+        
+    }
+    
     fileprivate func fetchPostsWithUser(user: User)
     {
         
         let ref =  Database.database().reference().child("posts").child(user.uid)
         ref.observeSingleEvent(of: .value, with: { (sanpshot) in
             
-            print(sanpshot.value ?? "")
+           // print(sanpshot.value ?? "")
             
-            self.posts =  []
+            self.collectionView?.refreshControl?.endRefreshing()
             
             guard let userPostsDict = sanpshot.value as? [String: Any] else { return }
             userPostsDict.forEach({ (key, value) in
@@ -95,10 +138,15 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                 
             })
             
+            self.posts.sort(by: { (p1, p2) -> Bool in
+                return p1.creationDate.compare(p2.creationDate) == .orderedDescending
+            })
+            
             self.collectionView?.reloadData()
             
         }) { (err) in
             print("Failed to fetch Posts",err)
+            return
         }
         
     }

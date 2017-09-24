@@ -15,7 +15,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
 
     var user: User?
     var posts = [Posts]()
-    
+    var userId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,34 +25,17 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
 
         // Register cell classes
         
+        
+        
         collectionView?.backgroundColor = .white
         gearIcon.image = #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal)
-        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().tintColor = UIColor.black
         
         fetchUser()
-        //fetchPosts()
-        fetchOrderedPost()
+        
         
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        
-//        collectionView?.backgroundColor = .white
-//        gearIcon.image = #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal)
-//        UINavigationBar.appearance().tintColor = UIColor.white
-//        
-//        //fetchUser()
-//        fetchPosts()
-//        
-//    }
-
- 
-
-//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -88,14 +71,20 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     
     fileprivate func fetchUser()
     {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let uid = userId ?? (Auth.auth().currentUser?.uid ?? "")
         
         Database.fetchUserWithUID(uid: uid) { (user) in
             
             self.user = user
-            self.navigationItem.title = self.user?.username
+            if self.user?.uid == Auth.auth().currentUser?.uid
+            {
+                self.navigationItem.title = self.user?.username
+            }
+            
             
             self.collectionView?.reloadData()
+            
+            self.fetchOrderedPost()
         }
         
         
@@ -103,7 +92,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     
     fileprivate func fetchOrderedPost()
     {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let uid = self.user?.uid else { return }
         
         let ref = Database.database().reference().child("posts").child(uid)
         
@@ -124,6 +113,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         }) { (err) in
             
             print("Failed to fetch Ordered Posts",err)
+            
         }
         
     }
@@ -136,11 +126,13 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerId", for: indexPath) as! UserProfileHeader
         //header.backgroundColor = .green
-        
+    
         header.user = self.user
         
         return header
     }
+    
+   
     
     @IBAction func gearIconBtnPressed(_ sender: Any) {
         
@@ -160,6 +152,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
                 catch let signOutErr {
                     
                 print("Failed to signOut", signOutErr)
+                    
                 }
             
         }))

@@ -14,7 +14,6 @@ class BorderButton: UIButton
         
         super.layoutSubviews()
         
-        
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 1
         layer.cornerRadius = 3

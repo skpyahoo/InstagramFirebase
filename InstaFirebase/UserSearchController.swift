@@ -15,23 +15,27 @@ class UserSearchController: UICollectionViewController, UICollectionViewDelegate
     
     var users = [User]()
     var filteredUser = [User]()
+    let searchBar = UISearchBar()
+    var selectedUser: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         createSearchBar()
         fetchAllUsers()
-    
-
+        collectionView?.keyboardDismissMode = .onDrag
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        searchBar.isHidden = false
     }
     
     fileprivate func createSearchBar()
     {
-        let searchBar = UISearchBar()
+        
         searchBar.showsCancelButton = false
         searchBar.placeholder = "Enter Username"
         searchBar.barTintColor = .gray
@@ -115,8 +119,23 @@ class UserSearchController: UICollectionViewController, UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let user = filteredUser[indexPath.item]
+        searchBar.isHidden = true
+        searchBar.resignFirstResponder()
+        
+        selectedUser = filteredUser[indexPath.item]
         performSegue(withIdentifier: "gotoUserProfile", sender: nil)
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gotoUserProfile"
+        {
+            let shareController: UserProfileController = segue.destination as! UserProfileController
+            
+            guard let id = selectedUser?.uid  else { return }
+            shareController.userId = id
+        }
         
     }
     

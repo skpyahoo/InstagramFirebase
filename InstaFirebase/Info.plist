@@ -38,5 +38,7 @@
 	<string>We would like to access your photos right now.</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>We would like use your camera to capture your moments.!!</string>
 </dict>
 </plist>

@@ -945,7 +945,7 @@ Cg
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="camera" id="rEY-Jm-Bri">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Kds-0A-dSW" kind="presentation" id="IdN-iY-3dc"/>
+                                <segue destination="Kds-0A-dSW" kind="presentation" id="lvY-En-1qB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -992,16 +992,58 @@ Cg
                                     <action selector="captureCameraBtnPressed:" destination="Kds-0A-dSW" eventType="touchUpInside" id="uvQ-ob-G7W"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="heC-fB-rHe">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJn-fM-cRf" customClass="PreviewPhotoControllerView" customModule="InstaFirebase" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zus-gp-LJ5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzJ-3Z-f4d">
+                                        <rect key="frame" x="12" y="12" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="4rW-sj-jlT"/>
+                                            <constraint firstAttribute="height" constant="50" id="wki-CM-JGA"/>
+                                        </constraints>
+                                        <state key="normal" image="cancel_shadow"/>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="Zxo-0I-gMV" eventType="touchUpInside" id="2kv-GO-t34"/>
+                                            <action selector="cancelButtonPressed:" destination="eJn-fM-cRf" eventType="touchUpInside" id="4YX-Yp-N2Q"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aX-Fq-1Vk">
+                                        <rect key="frame" x="24" y="593" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="DRO-6i-bxT"/>
+                                            <constraint firstAttribute="width" constant="50" id="y5b-rL-RRU"/>
+                                        </constraints>
+                                        <state key="normal" image="save_shadow"/>
+                                        <connections>
+                                            <action selector="saveButtonPressed:" destination="Kds-0A-dSW" eventType="touchUpInside" id="cE4-ka-0mq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Zus-gp-LJ5" firstAttribute="top" secondItem="eJn-fM-cRf" secondAttribute="top" id="O1n-MD-cJG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zus-gp-LJ5" secondAttribute="trailing" id="biQ-dg-ooB"/>
+                                    <constraint firstItem="Zus-gp-LJ5" firstAttribute="leading" secondItem="eJn-fM-cRf" secondAttribute="leading" id="cgM-1G-M1J"/>
+                                    <constraint firstItem="fzJ-3Z-f4d" firstAttribute="leading" secondItem="eJn-fM-cRf" secondAttribute="leading" constant="12" id="hFv-G7-WYO"/>
+                                    <constraint firstAttribute="bottom" secondItem="9aX-Fq-1Vk" secondAttribute="bottom" constant="24" id="nxa-UK-iyK"/>
+                                    <constraint firstItem="fzJ-3Z-f4d" firstAttribute="top" secondItem="eJn-fM-cRf" secondAttribute="top" constant="12" id="oCv-Me-X0e"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zus-gp-LJ5" secondAttribute="bottom" id="s0k-Gb-cCw"/>
+                                    <constraint firstItem="9aX-Fq-1Vk" firstAttribute="leading" secondItem="eJn-fM-cRf" secondAttribute="leading" constant="24" id="woR-gW-ZR2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eJn-fM-cRf" firstAttribute="top" secondItem="7rY-Rl-Rmq" secondAttribute="top" id="2vE-0f-ko2"/>
+                            <constraint firstItem="MEb-4K-9bt" firstAttribute="top" secondItem="eJn-fM-cRf" secondAttribute="bottom" id="31d-0w-uS0"/>
+                            <constraint firstItem="eJn-fM-cRf" firstAttribute="leading" secondItem="7rY-Rl-Rmq" secondAttribute="leading" id="6nF-fU-PRz"/>
                             <constraint firstAttribute="trailing" secondItem="oX1-zb-KVz" secondAttribute="trailing" id="9ji-O3-VBc"/>
                             <constraint firstItem="oX1-zb-KVz" firstAttribute="top" secondItem="7rY-Rl-Rmq" secondAttribute="top" id="ArA-3e-oAQ"/>
                             <constraint firstItem="xE0-Wa-wJv" firstAttribute="top" secondItem="btX-vV-aWY" secondAttribute="bottom" constant="8" id="Gt4-Ld-6us"/>
+                            <constraint firstAttribute="trailing" secondItem="eJn-fM-cRf" secondAttribute="trailing" id="L3X-3J-gmf"/>
                             <constraint firstItem="aIK-ZF-xpG" firstAttribute="centerX" secondItem="7rY-Rl-Rmq" secondAttribute="centerX" id="PO6-L1-1Xz"/>
                             <constraint firstItem="MEb-4K-9bt" firstAttribute="top" secondItem="aIK-ZF-xpG" secondAttribute="bottom" constant="24" id="RDx-P4-7b5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xE0-Wa-wJv" secondAttribute="trailing" constant="8" id="ZAM-PD-ftr"/>
@@ -1012,10 +1054,12 @@ Cg
                     <connections>
                         <outlet property="captureCameraButton" destination="aIK-ZF-xpG" id="aVd-Qj-nCU"/>
                         <outlet property="captureView" destination="oX1-zb-KVz" id="j2C-kf-VkY"/>
-                        <outlet property="previewImageView" destination="heC-fB-rHe" id="tu4-ch-FkO"/>
+                        <outlet property="containerView" destination="eJn-fM-cRf" id="biZ-G6-SVe"/>
+                        <outlet property="previewImageView" destination="Zus-gp-LJ5" id="0Zs-OL-5t1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chs-EU-aMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Zxo-0I-gMV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="8232.7999999999993" y="71.514242878560722"/>
         </scene>
@@ -1204,6 +1248,7 @@ Cg
         <image name="Instagram_logo_white" width="200" height="71"/>
         <image name="ad6eaceb600c46dc4119d6e0f66386e1" width="564" height="1055"/>
         <image name="camera3" width="22" height="19"/>
+        <image name="cancel_shadow" width="25" height="25"/>
         <image name="capture_photo" width="100" height="100"/>
         <image name="comment" width="22" height="19"/>
         <image name="gear" width="25" height="25"/>
@@ -1219,6 +1264,7 @@ Cg
         <image name="profile_unselected" width="22" height="22"/>
         <image name="ribbon" width="18" height="26"/>
         <image name="right_arrow_shadow" width="35" height="35"/>
+        <image name="save_shadow" width="45" height="53"/>
         <image name="search_selected" width="22" height="22"/>
         <image name="search_unselected" width="22" height="22"/>
         <image name="send2" width="22" height="19"/>

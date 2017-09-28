@@ -50,10 +50,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     {
         fetchPosts()
         fetchFollowingUserIds()
+        
     }
     
     
-
+   
+    
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items

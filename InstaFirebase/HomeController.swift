@@ -13,9 +13,11 @@ import Firebase
 
 private let reuseIdentifier = "HomeCell"
 
-class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout, HomePostDelegate {
     
     var posts = [Posts]()
+    
+    var selectedPost: Posts?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,9 +69,33 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         
         cell.post = posts[indexPath.item]
+        
+        cell.delegate = self
     
         return cell
     }
+    
+    func didTapComment(post: Posts) {
+        
+        print("Message coming from Home Controller")
+        print(post.caption)
+        selectedPost = post
+        performSegue(withIdentifier: "goToCommentsVC", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToCommentsVC"
+                    {
+                        let commentsVC = segue.destination as! CommentsController
+                        commentsVC.post = selectedPost
+                    }
+        
+    }
+    
+    
+    
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -133,7 +159,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                 
                 guard let postValueDict = value as? [String: Any] else { return }
                 
-                let post = Posts(user: user, dict: postValueDict)
+                var post = Posts(user: user, dict: postValueDict)
+                post.id = key
                 
                 //let post = Posts(dict: postValueDict)
                 self.posts.append(post)

@@ -599,7 +599,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ign-iq-hzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372" y="-711"/>
+            <point key="canvasLocation" x="170" y="-696"/>
         </scene>
         <!--Photo Selector Controller-->
         <scene sceneID="XH8-sC-b7Z">
@@ -847,6 +847,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tw-TY-W2C" customClass="ButtonSettings" customModule="InstaFirebase" customModuleProvider="target">
                                                     <rect key="frame" x="40" y="0.0" width="40" height="50"/>
                                                     <state key="normal" image="comment"/>
+                                                    <connections>
+                                                        <action selector="commentButtonPressed:" destination="CgO-2V-J2N" eventType="touchUpInside" id="Muk-1V-1BL"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpv-Fk-MFQ" customClass="ButtonSettings" customModule="InstaFirebase" customModuleProvider="target">
                                                     <rect key="frame" x="80" y="0.0" width="40" height="50"/>
@@ -949,6 +952,9 @@ Cg
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="aYd-d7-ClI" kind="show" identifier="goToCommentsVC" id="LFr-9u-Fyk"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLK-fn-6S8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1062,6 +1068,68 @@ Cg
                 <exit id="Zxo-0I-gMV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="8232.7999999999993" y="71.514242878560722"/>
+        </scene>
+        <!--Comments Controller-->
+        <scene sceneID="fxe-0l-KdR">
+            <objects>
+                <collectionViewController id="aYd-d7-ClI" customClass="CommentsController" customModule="InstaFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" id="iLA-5U-3r2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CmL-ds-v68">
+                            <size key="itemSize" width="353" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CommentsCell" id="4bh-TM-laH" customClass="CommentCell" customModule="InstaFirebase" customModuleProvider="target">
+                                <rect key="frame" x="11" y="0.0" width="353" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Jp-Sp-qhc" customClass="CustomImageView" customModule="InstaFirebase" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="8" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="HYD-oS-tke"/>
+                                                <constraint firstAttribute="width" constant="40" id="Jhs-77-PCj"/>
+                                            </constraints>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9rI-rT-qhN">
+                                            <rect key="frame" x="52" y="4" width="297" height="42"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="9rI-rT-qhN" secondAttribute="bottom" constant="4" id="7Yj-bV-sB7"/>
+                                    <constraint firstItem="3Jp-Sp-qhc" firstAttribute="leading" secondItem="4bh-TM-laH" secondAttribute="leading" constant="8" id="DLa-Zd-THu"/>
+                                    <constraint firstItem="3Jp-Sp-qhc" firstAttribute="top" secondItem="4bh-TM-laH" secondAttribute="top" constant="8" id="mtG-oi-ei3"/>
+                                    <constraint firstItem="9rI-rT-qhN" firstAttribute="leading" secondItem="3Jp-Sp-qhc" secondAttribute="trailing" constant="4" id="vqo-F9-s9P"/>
+                                    <constraint firstItem="9rI-rT-qhN" firstAttribute="top" secondItem="4bh-TM-laH" secondAttribute="top" constant="4" id="zNC-dU-FvN"/>
+                                    <constraint firstAttribute="trailing" secondItem="9rI-rT-qhN" secondAttribute="trailing" constant="4" id="zdQ-D1-5mW"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="commentTextLabel" destination="9rI-rT-qhN" id="dL8-GY-brS"/>
+                                    <outlet property="profileImageView" destination="3Jp-Sp-qhc" id="WmJ-Tj-pyi"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="aYd-d7-ClI" id="RbQ-iv-zHQ"/>
+                            <outlet property="delegate" destination="aYd-d7-ClI" id="Eil-9j-41V"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yg9-Py-8FA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9037.6000000000004" y="71.514242878560722"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OTQ-h8-FTq">

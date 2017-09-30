@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol HomePostDelegate {
+    func didTapComment(post: Posts)
+}
+
 class HomeCell: UICollectionViewCell {
     
     
@@ -18,6 +22,8 @@ class HomeCell: UICollectionViewCell {
     @IBOutlet var PhotoheightConstraint: NSLayoutConstraint!
     @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var captionLabel: UILabel!
+    
+    var delegate: HomePostDelegate?
     
     var post: Posts? {
         didSet {
@@ -60,5 +66,15 @@ class HomeCell: UICollectionViewCell {
         
        homeCellPhotoImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
     }
+    
+    
+    @IBAction func commentButtonPressed(_ sender: Any) {
+        
+        print("Trying to show Comment")
+        guard let post = post else {return}
+        delegate?.didTapComment(post: post)
+    }
+    
+    
     
 }

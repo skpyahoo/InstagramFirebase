@@ -10,6 +10,8 @@ import UIKit
 
 struct Posts {
 
+    var id: String?
+    
     let imageUrl: String
     let user: User
     let caption: String
